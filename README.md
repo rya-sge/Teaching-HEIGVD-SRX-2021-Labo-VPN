@@ -1,5 +1,11 @@
 # Teaching-HEIGVD-SRX-2021-Labo-VPN
 
+###### Ryan Sauge & Dylan Canton
+
+###### 20.05.2021
+
+---
+
 **Ce travail de laboratoire est à faire en équipes de 2 personnes**
 
 **Pour ce travail de laboratoire, il est votre responsabilité de chercher vous-même sur internet, le support du cours ou toute autre source (vous avez aussi le droit de communiquer avec les autres équipes), toute information relative au sujet VPN, le logiciel eve-ng, les routeur Cisco, etc que vous ne connaissez pas !**
@@ -30,8 +36,8 @@ Dans ce travail de laboratoire, vous allez configurer des routeurs Cisco émulé
 -	Capture Sniffer avec filtres précis sur la communication à épier
 -	Activation du mode « debug » pour certaines fonctions du routeur
 -	Observation des protocoles IPSec
- 
- 
+
+
 ## Matériel
 
 Le logiciel d'émulation à utiliser c'est eve-ng (vous l'avez déjà employé). Vous trouverez ici un [guide très condensé](files/Manuel_EVE-NG.pdf) pour l'utilisation et l'installation de eve-ng.
@@ -106,7 +112,15 @@ Un « protocol » différent de `up` indique la plupart du temps que l’interfa
 
 ---
 
-**Réponse :**  
+**Réponse :**  Aucun problème n'a été constaté, les adresses IP sont assignées aux bonnes interfaces et ces dernières sont activées.
+
+![Q1a](images/Q1a.PNG)
+
+
+
+![Q1b](images/Q1b.PNG)
+
+
 
 ---
 
@@ -143,7 +157,23 @@ Pour votre topologie il est utile de contrôler la connectivité entre :
 
 ---
 
-**Réponse :**  
+**Réponse :**  Tous les pings ont aboutis correctement, la connectivité est donc fonctionnelle.
+
+*Ping de R1 vers ISP1 :*
+
+![Q2a](D:\HEIG-VD\SEMESTRE-4\SRX\LABOS\LABO 04\Teaching-HEIGVD-SRX-2021-Labo-VPN\images\Q2a.PNG)
+
+
+
+*Ping de R1 vers R2 :*
+
+![Q2c](D:\HEIG-VD\SEMESTRE-4\SRX\LABOS\LABO 04\Teaching-HEIGVD-SRX-2021-Labo-VPN\images\Q2c.PNG)
+
+
+
+*Ping de R2 vers respectivement ISP2, R1, VPC :*
+
+![Q2b](D:\HEIG-VD\SEMESTRE-4\SRX\LABOS\LABO 04\Teaching-HEIGVD-SRX-2021-Labo-VPN\images\Q2b.PNG)
 
 ---
 

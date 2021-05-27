@@ -218,14 +218,14 @@ Nous allons établir un VPN IKE/IPsec entre le réseau de votre « loopback 1 »
 
 Sur le routeur R1 nous activons un « proposal » IKE. Il s’agit de la configuration utilisée pour la phase 1 du protocole IKE. Le « proposal » utilise les éléments suivants :
 
-| Element          | Value                                                                                                        |
-|------------------|----------------------------------------------------------------------------------------------------------------------|
-| Encryption       | AES 256 bits    
-| Signature        | Basée sur SHA-1                                                                                                      |
-| Authentification | Preshared Key                                                                                                        |
-| Diffie-Hellman   | avec des nombres premiers sur 1536 bits                                                                              |
-| Renouvellement   | des SA de la Phase I toutes les 30 minutes                                                                           |
-| Keepalive        | toutes les 30 secondes avec 3 « retry »                                                                              |
+| Element          | Value                                                        |
+| ---------------- | ------------------------------------------------------------ |
+| Encryption       | AES 256 bits                                                 |
+| Signature        | Basée sur SHA-1                                              |
+| Authentification | Preshared Key                                                |
+| Diffie-Hellman   | avec des nombres premiers sur 1536 bits                      |
+| Renouvellement   | des SA de la Phase I toutes les 30 minutes                   |
+| Keepalive        | toutes les 30 secondes avec 3 « retry »                      |
 | Preshared-Key    | pour l’IP du distant avec le texte « cisco-1 », Notez que dans la réalité nous utiliserions un texte plus compliqué. |
 
 

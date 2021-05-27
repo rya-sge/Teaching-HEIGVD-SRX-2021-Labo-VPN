@@ -369,11 +369,11 @@ show crypto map
 
 Config r1 
 
-![configIpsec_r1](C:\Users\super\switchdrive\HEIG\s4\Srx\labo\Teaching-HEIGVD-SRX-2021-Labo-VPN\images\configIpsec_r1.PNG)
+![configIpsec_r1](images\configIpsec_r1.PNG)
 
 Config r2
 
-![configIpsec_r2](C:\Users\super\switchdrive\HEIG\s4\Srx\labo\Teaching-HEIGVD-SRX-2021-Labo-VPN\images\configIpsec_r2.PNG)
+![configIpsec_r2](images\configIpsec_r2.PNG)
 
 ## Activation IPsec & test
 
@@ -406,13 +406,13 @@ Pensez à démarrer votre sniffer sur la sortie du routeur R2 vers internet avan
 
 Capture R1
 
-![activIpsec_r1](C:\Users\super\switchdrive\HEIG\s4\Srx\labo\Teaching-HEIGVD-SRX-2021-Labo-VPN\images\activIpsec_r1.PNG)
+![activIpsec_r1](images\activIpsec_r1.PNG)
 
 
 
 Capture r2
 
-![activIpsec_r2](C:\Users\super\switchdrive\HEIG\s4\Srx\labo\Teaching-HEIGVD-SRX-2021-Labo-VPN\images\activIpsec_r2.PNG)
+![activIpsec_r2](images\activIpsec_r2.PNG)
 
 
 
@@ -468,11 +468,11 @@ En vous appuyant sur les notions vues en cours et vos observations en laboratoir
 
 Routeur 1
 
-![r1_config_final](C:\Users\super\switchdrive\HEIG\s4\Srx\labo\Teaching-HEIGVD-SRX-2021-Labo-VPN\images\r1_config_final.PNG)
+![r1_config_final](images\r1_config_final.PNG)
 
 Routeur 2
 
-![r2_config_final](C:\Users\super\switchdrive\HEIG\s4\Srx\labo\Teaching-HEIGVD-SRX-2021-Labo-VPN\images\r2_config_final.PNG)
+![r2_config_final](images\r2_config_final.PNG)
 
 ---
 

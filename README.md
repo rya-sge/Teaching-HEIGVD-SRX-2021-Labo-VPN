@@ -161,19 +161,19 @@ Pour votre topologie il est utile de contrôler la connectivité entre :
 
 *Ping de R1 vers ISP1 :*
 
-![Q2a](D:\HEIG-VD\SEMESTRE-4\SRX\LABOS\LABO 04\Teaching-HEIGVD-SRX-2021-Labo-VPN\images\Q2a.PNG)
+![Q2a](images\Q2a.PNG)
 
 
 
 *Ping de R1 vers R2 :*
 
-![Q2c](D:\HEIG-VD\SEMESTRE-4\SRX\LABOS\LABO 04\Teaching-HEIGVD-SRX-2021-Labo-VPN\images\Q2c.PNG)
+![Q2c](images\Q2c.PNG)
 
 
 
 *Ping de R2 vers respectivement ISP2, R1, VPC :*
 
-![Q2b](D:\HEIG-VD\SEMESTRE-4\SRX\LABOS\LABO 04\Teaching-HEIGVD-SRX-2021-Labo-VPN\images\Q2b.PNG)
+![Q2b](images\Q2b.PNG)
 
 ---
 
@@ -197,6 +197,14 @@ Pour déclencher et pratiquer les captures vous allez « pinger » votre routeur
 ---
 
 **Screenshots :**  
+
+Capture debug icmp
+
+![Q2_r1_icmp](images\Q2_r1_icmp.PNG)
+
+Capture wireshark
+
+![Q2_r2_wireshark](images\Q2_r2_wireshark.PNG)
 
 ---
 
@@ -269,14 +277,35 @@ Vous pouvez consulter l’état de votre configuration IKE avec les commandes su
 
 **Réponse :**  
 
----
+isakmp est un protocole qui définit des procédures pour les Security Association(SA)
 
+Les policy définissent un ensemble de configuration. On peut constater que les policy ont une priorité qui définit de manière unique chaque policy et définit un ordre de priorité. 
+
+- Routeur 1, une seule policy
+
+![Q4_r1_policy](images\Q4_r1_policy.PNG)
+
+- Routeur 2, deux policy
+
+![Q4_r2_policy](images\Q4_r2_policy.PNG)
+
+---
 
 **Question 5: Utilisez la commande `show crypto isakmp key` et faites part de vos remarques :**
 
 ---
 
 **Réponse :**  
+
+Chaque routeur possède la clé partagée cisco-1.
+
+Le *hostname/address* définit le routeur "partenaire" de la clé
+
+![Q5_r1_key](images\Q5_r1_key.PNG)
+
+
+
+![Q5_r2_key](images\Q5_r2_key.PNG)
 
 ---
 
@@ -336,6 +365,16 @@ show access-list TO-CRYPT
 show crypto map
 ```
 
+
+
+Config r1 
+
+![configIpsec_r1](C:\Users\super\switchdrive\HEIG\s4\Srx\labo\Teaching-HEIGVD-SRX-2021-Labo-VPN\images\configIpsec_r1.PNG)
+
+Config r2
+
+![configIpsec_r2](C:\Users\super\switchdrive\HEIG\s4\Srx\labo\Teaching-HEIGVD-SRX-2021-Labo-VPN\images\configIpsec_r2.PNG)
+
 ## Activation IPsec & test
 
 Pour activer cette configuration IKE & IPsec il faut appliquer le « crypto map » sur l’interface de sortie du trafic où vous voulez que l’encryption prenne place. 
@@ -365,11 +404,40 @@ debug ip icmp
 
 Pensez à démarrer votre sniffer sur la sortie du routeur R2 vers internet avant de démarrer votre ping, collectez aussi les éventuels messages à la console des différents routeurs. 
 
+Capture R1
+
+![activIpsec_r1](C:\Users\super\switchdrive\HEIG\s4\Srx\labo\Teaching-HEIGVD-SRX-2021-Labo-VPN\images\activIpsec_r1.PNG)
+
+
+
+Capture r2
+
+![activIpsec_r2](C:\Users\super\switchdrive\HEIG\s4\Srx\labo\Teaching-HEIGVD-SRX-2021-Labo-VPN\images\activIpsec_r2.PNG)
+
+
+
 **Question 6: Ensuite faites part de vos remarques dans votre rapport. :**
 
 ---
 
-**Réponse :**  
+**Réponse :** 
+
+On peut voir sur la capture Wireshark que le protocole ISAKMP est utilisé en 2 phases : 
+
+- La 1ère phase en Main mode
+- La 2ème phase en Quick mode, avec le protocole ESP
+
+ On voit que nos pings sont envoyés avec IPSec, qui utilise le protocole ESP pour encapsuler les données.
+
+![Q6_debug_icmp](images\Q6_debug_icmp.PNG)
+
+ 
+
+![Q6_wireshark](images\Q6_wireshark.PNG)
+
+
+
+
 
 ---
 
@@ -378,6 +446,11 @@ Pensez à démarrer votre sniffer sur la sortie du routeur R2 vers internet avan
 ---
 
 **Réponse :**  
+
+**IKE :** * *Lifetime*   Temps de validité d'une SA durant la phase 1.  * *Keepalive*
+  Temps `X` entre chaque paquet DPD, ce paquet permet de vérifier que les stations reliées par un tunnel soient toujours actives. Après le temps, on indique également le nombre de tentatives lors de chaque envoie.   
+
+**IPSec :**  * *Security-association lifetime kilobytes*    Volume de trafic pouvant passer entre les pairs avant que la SA n'expire. * *Security-association lifetime seconds*    Temps (en seconde) avant que la SA n'expire.  * *Security-association idle-time*   Temps (en seconde) qu'un pair peut passer inactif tout en maintenant la SA, passé ce délai, la SA devra être effacée.
 
 ---
 
@@ -393,6 +466,14 @@ En vous appuyant sur les notions vues en cours et vos observations en laboratoir
 
 **Réponse :**  
 
+Routeur 1
+
+![r1_config_final](C:\Users\super\switchdrive\HEIG\s4\Srx\labo\Teaching-HEIGVD-SRX-2021-Labo-VPN\images\r1_config_final.PNG)
+
+Routeur 2
+
+![r2_config_final](C:\Users\super\switchdrive\HEIG\s4\Srx\labo\Teaching-HEIGVD-SRX-2021-Labo-VPN\images\r2_config_final.PNG)
+
 ---
 
 
@@ -402,31 +483,44 @@ En vous appuyant sur les notions vues en cours et vos observations en laboratoir
 
 **Réponse :**  
 
----
+Le mode configuré est  tunnel
 
+
+
+---
 
 **Question 10: Expliquez quelles sont les parties du paquet qui sont chiffrées. Donnez l’algorithme cryptographique correspondant.**
 
+
+
+
+
 ---
 
 **Réponse :**  
 
----
+Avec ESP, le paquet entier est chiffré et authentifié en mode tunnel
 
+---
 
 **Question 11: Expliquez quelles sont les parties du paquet qui sont authentifiées. Donnez l’algorithme cryptographique correspondant.**
 
+
+
 ---
 
 **Réponse :**  
 
----
+Avec ESP, les parties authentifiés sont ESP hdr, entête IP originale, Données, ESp trlr, 
 
+---
 
 **Question 12: Expliquez quelles sont les parties du paquet qui sont protégées en intégrité. Donnez l’algorithme cryptographique correspondant.**
 
 ---
 
 **Réponse :**  
+
+Avec le protocole Authentification Header, on a une intégrité
 
 ---

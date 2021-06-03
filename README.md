@@ -96,7 +96,7 @@ Vérifier que le projet a été importé correctement. Pour cela, nous allons co
 
 ### A faire...
 
-- Contrôlez l’état de toutes vos interfaces dans les deux routeurs et le routeur qui simule l'Internet - Pour contrôler l’état de vos interfaces (dans R1, par exmeple) les commandes suivantes sont utiles :
+- Contrôlez l’état de toutes vos interfaces dans les deux routeurs et le routeur qui simule l'Internet - Pour contrôler l’état de vos interfaces (dans R1, par exemple) les commandes suivantes sont utiles :
 
 ```
 R1# show ip interface brief
@@ -119,6 +119,8 @@ Un « protocol » différent de `up` indique la plupart du temps que l’interfa
 
 
 ![Q1b](images/Q1b.PNG)
+
+​	![0_ISP_check](images/0_ISP_check.PNG)
 
 
 
